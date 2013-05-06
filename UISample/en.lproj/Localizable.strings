@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  English
+*/
+
+TABBAR_HOME = "Home";
+TABBAR_POPUP = "Pop Up";
+
+MAIN_TEXT = "UI Sample";
+
+POPUP_SINGLE_SELECT_POPUP = "Single Select Style";
+
+BUTTON_CANCEL = "Cancel";

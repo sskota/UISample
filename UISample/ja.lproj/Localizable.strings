@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Japanese
+*/
+
+TABBAR_HOME = "ホーム";
+TABBAR_POPUP = "ポップアップ";
+
+MAIN_TEXT = "UI Sample";
+
+POPUP_SINGLE_SELECT_POPUP = "単一選択スタイル";
+
+BUTTON_CANCEL = "キャンセル";
