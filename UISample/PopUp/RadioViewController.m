@@ -41,11 +41,11 @@
 
 	// ポップアップ本体を描画
 	popUpView = [[UIView alloc] init];
-	[popUpView.layer setBorderColor:[[UIColor blackColor] CGColor]];
+	[popUpView.layer setBorderColor:[[UIColor grayColor] CGColor]];
 	[popUpView.layer setBorderWidth:1.0];
 	[popUpView.layer setCornerRadius:5];
-	[popUpView.layer setShadowOpacity:0.5];
-	[popUpView.layer setShadowOffset:CGSizeMake(1.0, 1.0)];
+	//[popUpView.layer setShadowOpacity:0.5];
+	//[popUpView.layer setShadowOffset:CGSizeMake(1.0, 1.0)];
 	[popUpView setClipsToBounds:YES];
 
 	CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
