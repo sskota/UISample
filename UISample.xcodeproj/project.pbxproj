@@ -18,8 +18,7 @@
 		878C5A251735F4FD000BE6F2 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 878C5A231735F4FD000BE6F2 /* MainViewController.m */; };
 		878C5A33173607A8000BE6F2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 878C5A31173607A8000BE6F2 /* Localizable.strings */; };
 		879BFA281736588B005A6A10 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 879BFA271736588B005A6A10 /* QuartzCore.framework */; };
-		879BFA3017368C67005A6A10 /* UIViewController_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 879BFA2F17368C66005A6A10 /* UIViewController_Extension.m */; };
-		879FB5A617360F1400859E62 /* RadioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 879FB5A417360F1400859E62 /* RadioViewController.m */; };
+		879FB5A617360F1400859E62 /* SelectDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 879FB5A417360F1400859E62 /* SelectDialogViewController.m */; };
 		879FB5AB173614A700859E62 /* PopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 879FB5AA173614A700859E62 /* PopUpViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -41,10 +40,8 @@
 		878C5A32173607A8000BE6F2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		878C5A34173607BA000BE6F2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		879BFA271736588B005A6A10 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		879BFA2E17368C66005A6A10 /* UIViewController_Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIViewController_Extension.h; path = Extension/UIViewController_Extension.h; sourceTree = "<group>"; };
-		879BFA2F17368C66005A6A10 /* UIViewController_Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIViewController_Extension.m; path = Extension/UIViewController_Extension.m; sourceTree = "<group>"; };
-		879FB5A317360F1400859E62 /* RadioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RadioViewController.h; path = PopUp/RadioViewController.h; sourceTree = "<group>"; };
-		879FB5A417360F1400859E62 /* RadioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RadioViewController.m; path = PopUp/RadioViewController.m; sourceTree = "<group>"; };
+		879FB5A317360F1400859E62 /* SelectDialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectDialogViewController.h; path = PopUp/SelectDialogViewController.h; sourceTree = "<group>"; };
+		879FB5A417360F1400859E62 /* SelectDialogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectDialogViewController.m; path = PopUp/SelectDialogViewController.m; sourceTree = "<group>"; };
 		879FB5A9173614A700859E62 /* PopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpViewController.h; path = PopUp/PopUpViewController.h; sourceTree = "<group>"; };
 		879FB5AA173614A700859E62 /* PopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopUpViewController.m; path = PopUp/PopUpViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,7 +92,6 @@
 		878C5A0B1735F3C0000BE6F2 /* UISample */ = {
 			isa = PBXGroup;
 			children = (
-				879BFA2D17368C37005A6A10 /* Extension */,
 				879FB5A817360F1B00859E62 /* PopUp */,
 				878C5A141735F3C0000BE6F2 /* AppDelegate.h */,
 				878C5A151735F3C0000BE6F2 /* AppDelegate.m */,
@@ -120,20 +116,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		879BFA2D17368C37005A6A10 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				879BFA2E17368C66005A6A10 /* UIViewController_Extension.h */,
-				879BFA2F17368C66005A6A10 /* UIViewController_Extension.m */,
-			);
-			name = Extension;
-			sourceTree = "<group>";
-		};
 		879FB5A817360F1B00859E62 /* PopUp */ = {
 			isa = PBXGroup;
 			children = (
-				879FB5A317360F1400859E62 /* RadioViewController.h */,
-				879FB5A417360F1400859E62 /* RadioViewController.m */,
+				879FB5A317360F1400859E62 /* SelectDialogViewController.h */,
+				879FB5A417360F1400859E62 /* SelectDialogViewController.m */,
 				879FB5A9173614A700859E62 /* PopUpViewController.h */,
 				879FB5AA173614A700859E62 /* PopUpViewController.m */,
 			);
@@ -209,9 +196,8 @@
 				878C5A121735F3C0000BE6F2 /* main.m in Sources */,
 				878C5A161735F3C0000BE6F2 /* AppDelegate.m in Sources */,
 				878C5A251735F4FD000BE6F2 /* MainViewController.m in Sources */,
-				879FB5A617360F1400859E62 /* RadioViewController.m in Sources */,
+				879FB5A617360F1400859E62 /* SelectDialogViewController.m in Sources */,
 				879FB5AB173614A700859E62 /* PopUpViewController.m in Sources */,
-				879BFA3017368C67005A6A10 /* UIViewController_Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

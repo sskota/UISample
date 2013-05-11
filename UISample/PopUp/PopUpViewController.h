@@ -4,15 +4,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RadioViewController.h"
+#import "SelectDialogViewController.h"
 
-@class RadioViewController;
+@class SelectDialogViewController;
 
-@interface PopUpViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, RadioViewDelegate>
+@interface PopUpViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SelectDialogViewDelegate>
 
 @property (retain, atomic) UITableView *mainTable;
 @property (retain, atomic) NSMutableArray *mainArray;
-
-@property (strong, nonatomic) RadioViewController *radioViewController;
+@property (strong, nonatomic) SelectDialogViewController *selectDialogViewController;
+@property (assign, nonatomic) BOOL isPhone;
 
 @end
