@@ -5,9 +5,21 @@
 
 TABBAR_HOME = "ホーム";
 TABBAR_POPUP = "ポップアップ";
+TABBAR_ALERT = "アラート";
 
-MAIN_TEXT = "UI Sample";
+MAIN_TEXT = "UI Sample\nfor iOS5 or Higher";
 
+POPUP_GROUP_DEFAULT = "デフォルト";
+POPUP_GROUP_CUSTOM = "カスタム";
 POPUP_SINGLE_SELECT_POPUP = "単一選択スタイル";
 
+ALERT_GROUP_DEFAULT = "デフォルト";
+ALERT_GROUP_CUSTOM = "カスタム";
+ALERT_NORMAL = "通常";
+ALERT_PLAIN_TEXT = "テキスト";
+ALERT_PASSWORD = "パスワード";
+ALERT_ID_PASSWORD = "ID/パスワード";
+ALERT_CUSTOM_SCROLL_TEXT = "長文テキスト";
+
+BUTTON_OK = "OK";
 BUTTON_CANCEL = "キャンセル";

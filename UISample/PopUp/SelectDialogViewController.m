@@ -28,7 +28,7 @@
 	self = [super init];
 	if (self) {
 		// Custom initialization
-		isPhone = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone;
+		self.isPhone = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone;
 	}
 	return self;
 }
@@ -40,7 +40,7 @@
 	CGRect popUpRect = [self.view bounds];
 
 	// デバイスごとにサイズを設定
-	if (isPhone) {
+	if (self.isPhone) {
 		CGFloat width = popUpRect.size.width * POPUP_DIALOG_WIDTH_PERCENT_IPHONE;
 		CGFloat height = popUpRect.size.height * POPUP_DIALOG_HEIGHT_PERCENT_IPHONE;
 		CGFloat originX = (popUpRect.size.width / 2) - (width / 2);
@@ -56,7 +56,7 @@
 	[popUpView setBackgroundColor:[UIColor whiteColor]];
 
 	// iPhoneの場合は影をつける
-	if (isPhone) {
+	if (self.isPhone) {
 		[popUpView.layer setCornerRadius:5];
 		[popUpView.layer setShadowOpacity:0.5];
 		[popUpView.layer setShadowOffset:CGSizeMake(0.0, 0.0)];
@@ -170,19 +170,19 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return [dialogArray count];
+	return [self.dialogArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	NSString *tableId = [NSString stringWithFormat:@"cell%ld%ld",(long)indexPath.section, (long)indexPath.row];
-    UITableViewCell	*cell = [dialogTable dequeueReusableCellWithIdentifier:tableId];
+	NSString *tableId = [NSString stringWithFormat:@"cell%ld-%ld",(long)indexPath.section, (long)indexPath.row];
+    UITableViewCell	*cell = [self.dialogTable dequeueReusableCellWithIdentifier:tableId];
 
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:tableId];
     }
 
-	cell.textLabel.text = [dialogArray objectAtIndex:indexPath.row];
+	cell.textLabel.text = [self.dialogArray objectAtIndex:indexPath.row];
 
 	// 選択済みインデックスにチェックを付ける
 	if (self.selectedIndex == indexPath.row) {

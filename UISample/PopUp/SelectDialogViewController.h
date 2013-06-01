@@ -18,10 +18,14 @@
 
 @protocol SelectDialogViewDelegate
 
+@optional
+
+//- (void)didFinishLaunching:(UIViewController *)controller;
+
 @required
 
--(void)didSelectDialogIndexPath:(NSIndexPath *)indexPath;
--(void)didSelectCancelButton:(id)sender;
+- (void)didSelectDialogIndexPath:(NSIndexPath *)indexPath;
+- (void)didSelectCancelButton:(id)sender;
 
 @end
 

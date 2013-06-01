@@ -7,6 +7,10 @@
 
 @interface PopUpViewController ()
 
+@property (retain, atomic) UITableView *mainTable;
+@property (retain, atomic) NSMutableArray *mainArray;
+@property (strong, nonatomic) SelectDialogViewController *selectDialogViewController;
+
 @end
 
 @implementation PopUpViewController
@@ -14,17 +18,15 @@
 @synthesize mainTable;
 @synthesize mainArray;
 @synthesize selectDialogViewController;
-@synthesize isPhone;
+
+#pragma mark -- Lifecycle
 
 - (id)init
 {
 	self = [super init];
 	if (self) {
 		// Custom initialization
-		isPhone = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone;
-
 		[self setTitle:NSLocalizedString(@"TABBAR_POPUP", @"")];
-		[UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleBlackTranslucent;
 	}
 
 	return self;
@@ -34,21 +36,18 @@
 {
     [super viewDidLoad];
 
-	[self.navigationController setNavigationBarHidden:NO animated:NO];
-
 	// テーブルデータを作成
-	mainArray = [[NSMutableArray alloc] initWithCapacity:0];
-	[mainArray addObject:NSLocalizedString(@"POPUP_SINGLE_SELECT_POPUP", @"")];
+	self.mainArray = [[NSMutableArray alloc] initWithCapacity:0];
+	[self.mainArray addObject:NSLocalizedString(@"POPUP_SINGLE_SELECT_POPUP", @"")];
 
 	// テーブルを設定
 	CGRect viewSize = [self.view bounds];
 	CGRect tableRect = CGRectMake(0, 0, viewSize.size.width, viewSize.size.height);
-	mainTable = [[UITableView alloc] initWithFrame:tableRect style:UITableViewStyleGrouped];
-	[mainTable setDelegate:self];
-	[mainTable setDataSource:self];
-	[mainTable setBackgroundColor:[UIColor whiteColor]];
+	self.mainTable = [[UITableView alloc] initWithFrame:tableRect style:UITableViewStyleGrouped];
+	[self.mainTable setDelegate:self];
+	[self.mainTable setDataSource:self];
 
-	[self.view addSubview:mainTable];
+	[self.view addSubview:self.mainTable];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -86,49 +85,57 @@
 	[controller setSelectedIndex:-1];
 	[controller setDelegate:self];
 
-	self.selectDialogViewController = controller;
+	if (self.isPhone) {
 
-	if (isPhone) {
+		self.selectDialogViewController = controller;
 		[self.tabBarController presentDialogViewController:self.selectDialogViewController animated:YES];
 	}
 	else {
-		self.selectDialogViewController.modalPresentationStyle = UIModalPresentationFormSheet;
-		//self.selectDialogViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-		[self presentViewController:self.selectDialogViewController animated:YES completion:nil];
+		controller.modalPresentationStyle = UIModalPresentationFormSheet;
+		//controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+		[self presentViewController:controller animated:YES completion:nil];
 	}
-
-	[self deselectRow];
 }
 
 - (void)deselectRow
 {
-	NSIndexPath *selection = [mainTable indexPathForSelectedRow];
+	NSIndexPath *selection = [self.mainTable indexPathForSelectedRow];
 	if(selection){
-		[mainTable deselectRowAtIndexPath:selection animated:YES];
+		[self.mainTable deselectRowAtIndexPath:selection animated:YES];
 	}
 
-	[mainTable reloadData];
+	[self.mainTable reloadData];
 }
 
 #pragma mark -- UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return [mainArray count];
+	return [self.mainArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	NSString *tableId = [NSString stringWithFormat:@"cell%ld%ld",(long)indexPath.section, (long)indexPath.row];
-    UITableViewCell	*tableCell = [mainTable dequeueReusableCellWithIdentifier:tableId];
+	NSString *tableId = [NSString stringWithFormat:@"cell%ld-%ld",(long)indexPath.section, (long)indexPath.row];
+    UITableViewCell	*tableCell = [self.mainTable dequeueReusableCellWithIdentifier:tableId];
 
     if (tableCell == nil) {
         tableCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:tableId];
     }
 
-	tableCell.textLabel.text = [mainArray objectAtIndex:indexPath.row];
+	tableCell.textLabel.text = [self.mainArray objectAtIndex:indexPath.row];
 
     return tableCell;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+	return 1;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+	return NSLocalizedString(@"ALERT_GROUP_CUSTOM", @"");
 }
 
 #pragma mark -- UITableViewDelegate
@@ -141,45 +148,30 @@
 	}
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-	// ヘッダーは使わないので高さ0
-	return 0;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-	// フッターは使わないので高さ0
-	return 0;
-}
-
-#pragma mark -- UIViewControllerDelegate
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-	return YES;
-}
-
 #pragma mark -- SelectDialogViewDelegate
 
 - (void)didSelectDialogIndexPath:(NSIndexPath *)indexPath
 {
-	if (isPhone) {
+	if (self.isPhone) {
 		[self.tabBarController dismissDialogViewController:selectDialogViewController animated:YES];
 	}
 	else {
 		[self dismissViewControllerAnimated:YES completion:nil];
 	}
+
+	[self deselectRow];
 }
 
 - (void)didSelectCancelButton:(id)sender
 {
-	if (isPhone) {
+	if (self.isPhone) {
 		[self.tabBarController dismissDialogViewController:selectDialogViewController animated:YES];
 	}
 	else {
 		[self dismissViewControllerAnimated:YES completion:nil];
 	}
+
+	[self deselectRow];
 }
 
 #pragma mark -- TestData

@@ -5,9 +5,21 @@
 
 TABBAR_HOME = "Home";
 TABBAR_POPUP = "Pop Up";
+TABBAR_ALERT = "Alert";
 
-MAIN_TEXT = "UI Sample";
+MAIN_TEXT = "UI Sample\nfor iOS5 or Higher";
 
+POPUP_GROUP_DEFAULT = "Default";
+POPUP_GROUP_CUSTOM = "Custom";
 POPUP_SINGLE_SELECT_POPUP = "Single Select Style";
 
+ALERT_GROUP_DEFAULT = "Default";
+ALERT_GROUP_CUSTOM = "Custom";
+ALERT_NORMAL = "Normal";
+ALERT_PLAIN_TEXT = "Plain Text";
+ALERT_PASSWORD = "Password";
+ALERT_ID_PASSWORD = "ID with Password";
+ALERT_CUSTOM_SCROLL_TEXT = "Long Text";
+
+BUTTON_OK = "OK";
 BUTTON_CANCEL = "Cancel";

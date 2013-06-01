@@ -20,6 +20,8 @@
 		879BFA281736588B005A6A10 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 879BFA271736588B005A6A10 /* QuartzCore.framework */; };
 		879FB5A617360F1400859E62 /* SelectDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 879FB5A417360F1400859E62 /* SelectDialogViewController.m */; };
 		879FB5AB173614A700859E62 /* PopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 879FB5AA173614A700859E62 /* PopUpViewController.m */; };
+		87FCA03C1759A95E00D90E09 /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FCA03B1759A95E00D90E09 /* AlertViewController.m */; };
+		87FCA03F1759C69700D90E09 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FCA03E1759C69700D90E09 /* BaseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,10 @@
 		879FB5A417360F1400859E62 /* SelectDialogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectDialogViewController.m; path = PopUp/SelectDialogViewController.m; sourceTree = "<group>"; };
 		879FB5A9173614A700859E62 /* PopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpViewController.h; path = PopUp/PopUpViewController.h; sourceTree = "<group>"; };
 		879FB5AA173614A700859E62 /* PopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopUpViewController.m; path = PopUp/PopUpViewController.m; sourceTree = "<group>"; };
+		87FCA03A1759A95E00D90E09 /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertViewController.h; path = Alert/AlertViewController.h; sourceTree = "<group>"; };
+		87FCA03B1759A95E00D90E09 /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertViewController.m; path = Alert/AlertViewController.m; sourceTree = "<group>"; };
+		87FCA03D1759C69700D90E09 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		87FCA03E1759C69700D90E09 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,11 +98,14 @@
 		878C5A0B1735F3C0000BE6F2 /* UISample */ = {
 			isa = PBXGroup;
 			children = (
-				879FB5A817360F1B00859E62 /* PopUp */,
+				87FCA0391759A85800D90E09 /* Alert */,
 				878C5A141735F3C0000BE6F2 /* AppDelegate.h */,
 				878C5A151735F3C0000BE6F2 /* AppDelegate.m */,
+				87FCA03D1759C69700D90E09 /* BaseViewController.h */,
+				87FCA03E1759C69700D90E09 /* BaseViewController.m */,
 				878C5A221735F4FD000BE6F2 /* MainViewController.h */,
 				878C5A231735F4FD000BE6F2 /* MainViewController.m */,
+				879FB5A817360F1B00859E62 /* PopUp */,
 				878C5A0C1735F3C0000BE6F2 /* Supporting Files */,
 			);
 			path = UISample;
@@ -125,6 +134,15 @@
 				879FB5AA173614A700859E62 /* PopUpViewController.m */,
 			);
 			name = PopUp;
+			sourceTree = "<group>";
+		};
+		87FCA0391759A85800D90E09 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				87FCA03A1759A95E00D90E09 /* AlertViewController.h */,
+				87FCA03B1759A95E00D90E09 /* AlertViewController.m */,
+			);
+			name = Alert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +216,8 @@
 				878C5A251735F4FD000BE6F2 /* MainViewController.m in Sources */,
 				879FB5A617360F1400859E62 /* SelectDialogViewController.m in Sources */,
 				879FB5AB173614A700859E62 /* PopUpViewController.m in Sources */,
+				87FCA03C1759A95E00D90E09 /* AlertViewController.m in Sources */,
+				87FCA03F1759C69700D90E09 /* BaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +261,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -266,7 +286,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -280,6 +300,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UISample/UISample-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/UISample/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -291,6 +312,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UISample/UISample-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/UISample/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

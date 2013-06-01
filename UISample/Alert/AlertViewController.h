@@ -4,15 +4,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SelectDialogViewController.h"
 #import "BaseViewController.h"
 
 #define TABLE_SECTION_DEFAULT 0
 #define TABLE_SECTION_CUSTOM 1
 
-@class SelectDialogViewController;
+#define KEY_DEFAULT @"default"
+#define KEY_CUSTOM @"custom"
+
 @class BaseViewController;
 
-@interface PopUpViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate, SelectDialogViewDelegate>
+@interface AlertViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
 @end

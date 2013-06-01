@@ -6,6 +6,7 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "PopUpViewController.h"
+#import "AlertViewController.h"
 
 @implementation AppDelegate
 
@@ -16,12 +17,14 @@
 
 	self.mainViewController = [[MainViewController alloc] init];
 	self.popUpViewController = [[PopUpViewController alloc] init];
+	self.alertViewController = [[AlertViewController alloc] init];
 
 	// ナビゲーションの設定
 	self.popUpNavController = [[UINavigationController alloc] initWithRootViewController:self.popUpViewController];
+	self.alertNavController = [[UINavigationController alloc] initWithRootViewController:self.alertViewController];
 
 	// TabBar用のView配列を作成
-	NSArray *views = [NSArray arrayWithObjects:self.mainViewController, self.popUpNavController, nil];
+	NSArray *views = [NSArray arrayWithObjects:self.mainViewController, self.popUpNavController, self.alertNavController, nil];
 
 	self.tabBarController = [[UITabBarController alloc] init];
 	[self.tabBarController setViewControllers:views];
