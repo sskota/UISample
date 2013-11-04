@@ -200,19 +200,19 @@
 - (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	// 各行の高さを設定する
-	return 45;
+	return POPUP_TABLE_HIGHT;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
 	// ヘッダーは使わないので高さ0
-	return 0;
+	return POPUP_TABLE_HEADER_HIGHT;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
 	// フッターは使わないので高さ0
-	return 0;
+	return POPUP_TABLE_FOOTER_HIGHT;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
